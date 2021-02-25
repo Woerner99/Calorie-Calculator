@@ -11,6 +11,10 @@
 import os
 import BMR
 
+
+#====================================================================
+# Subroutines
+#====================================================================
 # Boolean function to determine whether or not to save the profile of user
 # 1 means save, else do nothing
 def doWeSave(bmr):

@@ -11,6 +11,10 @@
 import os
 import Profile
 
+
+#====================================================================
+# Subroutines
+#====================================================================
 #This method uses the Harris-Benedict Formula
 def getBMR(gender, age, height, weight, bfp, act_level):
 
