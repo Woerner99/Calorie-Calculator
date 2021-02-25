@@ -49,7 +49,7 @@ def personData():
 	age = int(input("What is your age?\n"))
 	height = float(input("What is your height in inches?\n"))
 	weight = float(input("What is your weight in pounds?\n"))
-	bfp = float(input("What is your body fat percentage?\n"))
+	bfp = float(input("What is your body fat percentage? (For 20% = 0.2) \n"))
 	act_level = float(input("What is your activity level?\n(1.2) Sedentary\n(1.375) 1-3 days of exercise per week\n(1.55) 3-5 days of exercise per week\n(1.725) 6-7 days of exercise per week\n(1.9) Very hard exercise daily\n(x) Or enter a custom activity level\n"))
 	
 	
