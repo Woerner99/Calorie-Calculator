@@ -10,6 +10,7 @@ Date: 02/04/2021
 
 
 def print_menu():
+	print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
 	print("*******************************************")
 	print("*	  Calorie Calculator              *")
 	print("*                                         *")
@@ -23,7 +24,11 @@ def print_menu():
 	
 #This method uses the Harris-Benedict Formula	
 
-def getBMR(gender, age, height, weight, act_level):
+def getBMR(gender, age, height, weight, bfp, act_level):
+
+	#Calculate Lean Mass (this will be used to calculate BMR)
+	weight = weight*(1-bfp)
+	
 	#Male
 	if(gender==1):
 		bmr = 66.47 + (6.24*weight) + (12.7*height) - (6.755*age)	
@@ -44,21 +49,22 @@ def personData():
 	age = int(input("What is your age?\n"))
 	height = float(input("What is your height in inches?\n"))
 	weight = float(input("What is your weight in pounds?\n"))
+	bfp = float(input("What is your body fat percentage?\n"))
 	act_level = float(input("What is your activity level?\n(1.2) Sedentary\n(1.375) 1-3 days of exercise per week\n(1.55) 3-5 days of exercise per week\n(1.725) 6-7 days of exercise per week\n(1.9) Very hard exercise daily\n(x) Or enter a custom activity level\n"))
 	
 	
-	return gender,age,height,weight,act_level
+	return gender,age,height,weight,bfp,act_level
 
 def printBMR():
-	gender,age,height,weight,act_level = personData()
-	bmr = getBMR(gender,age,height,weight,act_level)
+	gender,age,height,weight,bfp,act_level = personData()
+	bmr = getBMR(gender,age,height,weight,bfp,act_level)
 	
 	print("\nYour Calculated BMR is: "+str(bmr)+" calories burned per day.")
 	back = input("Press ENTER to return...\n")
 
 def loseWeight():
-	gender,age,height,weight,act_level = personData()
-	bmr = getBMR(gender,age,height,weight,act_level)
+	gender,age,height,weight,bfp,act_level = personData()
+	bmr = getBMR(gender,age,height,weight,bfp,act_level)
 	
 	bmr = (bmr*.8)
 	print("\nYou need to consume: "+str(bmr)+" calroies per day in order to roughly lose 1lb of fat per week.")
@@ -66,8 +72,8 @@ def loseWeight():
 
 
 def gainWeight():
-	gender,age,height,weight,act_level = personData()
-	bmr = getBMR(gender,age,height,weight,act_level)
+	gender,age,height,weight,bfp,act_level = personData()
+	bmr = getBMR(gender,age,height,weight,bfp,act_level)
 	
 	bmr = (bmr*1.2)
 	print("\nYou need to consume: "+str(bmr)+" calroies per day in order to gain muscle.")
@@ -82,6 +88,8 @@ def sel():
 		loseWeight()
 	if(choice == '3'):
 		gainWeight()
+		
+#==========================================		
 # MAIN	
 while(1):	
 	print_menu()	
