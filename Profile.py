@@ -29,6 +29,20 @@ def saveProfile(name, bmr):
 	f = open("profiles.txt","a")
 	f.write(name+" "+str(bmr)+"\n")
 	f.close()
+
+# List Names of saved profiles from file if exists
+def listProfiles():
+	if os.path.exists("profiles.txt"):
+		with open("profiles.txt") as file:
+			text = file.read()
+		result = text.split('\n')
+		print(result)
+		back = input("Press ENTER to return...\n")
+	else:
+		print("There are no profiles saved...")
+		back = input("Press ENTER to return...\n")
+
+
 # Erases profiles.txt if it exists in the project folder
 def eraseProfiles():
 	if os.path.exists("profiles.txt"):

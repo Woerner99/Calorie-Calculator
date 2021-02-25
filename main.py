@@ -1,10 +1,10 @@
-"""
-Calorie Calculator 
+#====================================================================
+# Calorie Calculator (main.py)
 
-Author: Sean-Michael Woerner
-Date: 02/04/2021
+# Author: Sean-Michael Woerner
+# Date: 02/04/2021
+#====================================================================
 
-"""
 #====================================================================
 #Imports:
 #====================================================================
@@ -31,8 +31,9 @@ def print_menu():
 	print("\nMain Menu\n---------")
 	print("(1) Calculate BMR")
 	print("(2) Calculate Calories Needed to Lose Weight")
-	print("(3) Calculate Calroies Needed to Gain Weight")
-	print("(4) Erase Profiles")
+	print("(3) Calculate Calories Needed to Gain Weight")
+	print("(4) List Saved Profiles")
+	print("(5) Erase Profiles")
 	print("---------------------------------------------")
 
 # Menu selection entered by user
@@ -44,7 +45,9 @@ def sel():
 		BMR.loseWeight()
 	if(choice == '3'):
 		BMR.gainWeight()
-	if(choice == '4'):
+	if choice == '4':
+		Profile.listProfiles()
+	if(choice == '5'):
 		Profile.eraseProfiles()
 
 #====================================================================
