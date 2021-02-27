@@ -64,8 +64,8 @@ def loseWeight():
 	gender,age,height,weight,bfp,act_level = personData()
 	bmr = getBMR(gender,age,height,weight,bfp,act_level)
 
-	bmr = (bmr*.8)
-	print("\nYou need to consume: "+str(bmr)+" calroies per day in order to roughly lose 1lb of fat per week.")
+	bmrLose = (bmr*.8)
+	print("\nYou need to consume: "+str(bmrLose)+" calroies per day in order to roughly lose 1lb of fat per week.")
 	Profile.doWeSave(bmr)
 	back = input("Press ENTER to return...\n")
 
@@ -74,7 +74,7 @@ def gainWeight():
 	gender,age,height,weight,bfp,act_level = personData()
 	bmr = getBMR(gender,age,height,weight,bfp,act_level)
 
-	bmr = (bmr*1.2)
-	print("\nYou need to consume: "+str(bmr)+" calroies per day in order to gain muscle.")
+	bmrGain = (bmr*1.2)
+	print("\nYou need to consume: "+str(bmrGain)+" calroies per day in order to gain muscle.")
 	Profile.doWeSave(bmr)
 	back = input("Press ENTER to return...\n")
